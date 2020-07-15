@@ -223,9 +223,9 @@ def find_or_create_mementos(urirs, session, accept_datetime=None,
                 # candidate_urim = archivenow.push(urir, "is")[0]
                 module_logger.warning("Failed to push {} into the Internet Archive, skipping...".format(urir))
                 hypercane.errors.errorstore.add(urir, "Failed to create URI-M for {}".format(urir))
-
-        module_logger.info("adding URI-M {}".format(candidate_urim))
-        urims.append(candidate_urim)
+            else:
+                module_logger.info("adding URI-M {}".format(candidate_urim))
+                urims.append(candidate_urim)
 
     return urims
 
